@@ -184,14 +184,14 @@ def get_status():
     })
 
 if __name__ == '__main__':
-    # Try port 80, fall back to 3000
-    preferred_port = 80
+    # Get PORT from environment variable (standard for Render, GCP, Railway)
+    port = int(os.environ.get('PORT', 80))
     fallback_port = 3000
     try:
-        print(f"Starting Flask server on port {preferred_port}...")
+        print(f"Starting Flask server on port {port}...")
         # debug=False is important so it doesn't double-start due to reloader
-        app.run(host='0.0.0.0', port=preferred_port, debug=False)
+        app.run(host='0.0.0.0', port=port, debug=False)
     except Exception as e:
-        print(f"Failed to start on port {preferred_port}: {e}")
+        print(f"Failed to start on port {port}: {e}")
         print(f"Retrying on port {fallback_port}...")
         app.run(host='0.0.0.0', port=fallback_port, debug=False)
