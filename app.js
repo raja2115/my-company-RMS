@@ -1037,6 +1037,24 @@ function setupContactForm() {
     }
 }
 
+// Start status polling for non-admins to watch for maintenance mode
+function startVisitorStatusPolling() {
+    setInterval(async () => {
+        if (!state.isAdmin) {
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                if (data.admin_active && !data.is_admin) {
+                    // Redirect to maintenance
+                    window.location.href = '/';
+                }
+            } catch (e) {
+                console.error("Error in status polling:", e);
+            }
+        }
+    }, 3000); // Check every 3 seconds for instant response
+}
+
 // ================= INITIALIZATION =================
 window.addEventListener('DOMContentLoaded', async () => {
     // 1. Initial State Load
@@ -1054,4 +1072,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     
     // 5. Initial Greeting
     appendChatMessage('bot', botGreeting, true);
+
+    // 6. Start polling for maintenance mode if not admin
+    startVisitorStatusPolling();
 });

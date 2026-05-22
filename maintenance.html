@@ -254,8 +254,8 @@
             </div>
         </div>
 
-        <h1>Site Will Open Soon</h1>
-        <p>The website is currently undergoing live content updates by the administrator. It will be back online shortly with new services, products, and information.</p>
+        <h1>website update coming soon....</h1>
+        <p>An updating process is going on. Please wait for some time, the website will open soon....</p>
 
         <div class="progress-container">
             <div class="progress-bar"></div>
@@ -269,5 +269,21 @@
             &copy; 2026 RMS MultiTech. All Rights Reserved. Founded by Raja Meenakshi Sundaram G.
         </div>
     </div>
+
+    <script>
+        // Check website status every 3 seconds to see if admin has finished updating
+        setInterval(async () => {
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                if (!data.admin_active) {
+                    // Site is back online, redirect to home page
+                    window.location.href = '/';
+                }
+            } catch (e) {
+                console.error("Error checking website status:", e);
+            }
+        }, 3000);
+    </script>
 </body>
 </html>
