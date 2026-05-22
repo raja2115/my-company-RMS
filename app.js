@@ -78,6 +78,13 @@ const DEFAULT_CORPORATE_INFO = {
     hours: "Mon - Fri, 9:00 AM - 6:00 PM IST"
 };
 
+const DEFAULT_STATS_INFO = {
+    delivery: "100%",
+    deployments: "250+",
+    coverage: "24/7",
+    products: "15+"
+};
+
 // ================= STATE MANAGEMENT =================
 let state = {
     isAdmin: false,
@@ -88,6 +95,7 @@ let state = {
     ceo: {},
     contactHeader: {},
     corporate: {},
+    stats: {},
     services: [],
     products: []
 };
@@ -118,6 +126,7 @@ async function initLocalState() {
         state.ceo = data.ceo || { ...DEFAULT_CEO_INFO };
         state.contactHeader = data.contactHeader || { ...DEFAULT_CONTACT_HEADER };
         state.corporate = data.corporate || { ...DEFAULT_CORPORATE_INFO };
+        state.stats = data.stats || { ...DEFAULT_STATS_INFO };
         state.services = data.services || [ ...DEFAULT_SERVICES ];
         state.products = data.products || [ ...DEFAULT_PRODUCTS ];
     } catch (e) {
@@ -129,6 +138,7 @@ async function initLocalState() {
         state.ceo = { ...DEFAULT_CEO_INFO };
         state.contactHeader = { ...DEFAULT_CONTACT_HEADER };
         state.corporate = { ...DEFAULT_CORPORATE_INFO };
+        state.stats = { ...DEFAULT_STATS_INFO };
         state.services = [ ...DEFAULT_SERVICES ];
         state.products = [ ...DEFAULT_PRODUCTS ];
     }
@@ -150,6 +160,7 @@ async function saveStateToBackend() {
                 ceo: state.ceo,
                 contactHeader: state.contactHeader,
                 corporate: state.corporate,
+                stats: state.stats,
                 services: state.services,
                 products: state.products
             })
@@ -186,7 +197,11 @@ const editableConfig = {
     'editable-corp-address': { label: 'Corporate Address', path: 'corporate.address' },
     'editable-corp-phone': { label: 'Corporate Directory Phone', path: 'corporate.phone' },
     'editable-corp-email': { label: 'Corporate Directory Email', path: 'corporate.email' },
-    'editable-corp-hours': { label: 'Corporate Office Hours', path: 'corporate.hours' }
+    'editable-corp-hours': { label: 'Corporate Office Hours', path: 'corporate.hours' },
+    'editable-stat-delivery': { label: 'Stat Service Delivery SLA', path: 'stats.delivery' },
+    'editable-stat-deployments': { label: 'Stat Active Deployments', path: 'stats.deployments' },
+    'editable-stat-coverage': { label: 'Stat Support Coverage', path: 'stats.coverage' },
+    'editable-stat-products': { label: 'Stat Enterprise Products', path: 'stats.products' }
 };
 
 // Admin elements
@@ -697,7 +712,11 @@ const chatbotFieldMapping = {
     'corporate email': { label: 'Corporate Email', path: 'corporate.email' },
     'email': { label: 'Corporate Email', path: 'corporate.email' },
     'corporate hours': { label: 'Corporate Hours', path: 'corporate.hours' },
-    'hours': { label: 'Corporate Hours', path: 'corporate.hours' }
+    'hours': { label: 'Corporate Hours', path: 'corporate.hours' },
+    'stat delivery': { label: 'Stat Service Delivery SLA', path: 'stats.delivery' },
+    'stat deployments': { label: 'Stat Active Deployments', path: 'stats.deployments' },
+    'stat coverage': { label: 'Stat Support Coverage', path: 'stats.coverage' },
+    'stat products': { label: 'Stat Enterprise Products', path: 'stats.products' }
 };
 
 function updateChatbotForAdmin() {
@@ -816,7 +835,7 @@ function handleBotResponse(userMsg) {
                 return;
             }
             else if (query === 'change content help' || query === 'change hero help') {
-                response = `🛠| **Admin Content Editor**:\nTo edit headings or details from chat, type:\n\`change [field] [value]\` or \`change [field] to [value]\`\n\n*Fields you can change*:\n- \`hero title\`, \`hero subtitle\`\n- \`about title\`, \`about description\`\n- \`services title\`, \`services description\`\n- \`products title\`, \`products description\`\n- \`ceo name\`, \`ceo quote\`, \`ceo bio\`, \`ceo phone\`, \`ceo email\`\n- \`contact title\`, \`contact description\`\n- \`address\`, \`phone\`, \`email\`, \`hours\``;
+                response = `🛠| **Admin Content Editor**:\nTo edit headings or details from chat, type:\n\`change [field] [value]\` or \`change [field] to [value]\`\n\n*Fields you can change*:\n- \`hero title\`, \`hero subtitle\`\n- \`about title\`, \`about description\`\n- \`services title\`, \`services description\`\n- \`products title\`, \`products description\`\n- \`ceo name\`, \`ceo quote\`, \`ceo bio\`, \`ceo phone\`, \`ceo email\`\n- \`contact title\`, \`contact description\`\n- \`address\`, \`phone\`, \`email\`, \`hours\`\n- \`stat delivery\`, \`stat deployments\`, \`stat coverage\`, \`stat products\``;
                 appendChatMessage('bot', response, true);
                 return;
             }
@@ -891,6 +910,7 @@ function handleBotResponse(userMsg) {
                     ceo: DEFAULT_CEO_INFO,
                     contactHeader: DEFAULT_CONTACT_HEADER,
                     corporate: DEFAULT_CORPORATE_INFO,
+                    stats: DEFAULT_STATS_INFO,
                     services: DEFAULT_SERVICES,
                     products: DEFAULT_PRODUCTS
                 };
@@ -921,8 +941,8 @@ function handleBotResponse(userMsg) {
         else if (query.includes('admin') || query.includes('login') || query.includes('edit')) {
             response = `To enter Admin Mode:\n1. Click **Admin Login** in the header or **Admin Console** in the footer.\n2. Use credentials:\n   - **Username**: \`admin\`\n   - **Password**: \`admin123\`\n3. Once logged in, you can click on text blocks or talk to the chatbot to make live updates instantly!`;
         } 
-        else if (query.includes('how many') || query.includes('count') || query.includes('how much') || query.includes('active project') || query.includes('number of') || query.includes('how many project')) {
-            response = `We are currently managing **${state.services.length} active services** and **${state.products.length} active products**, representing a total of **${state.services.length + state.products.length} active projects** under the leadership of CEO Raja Meenakshi Sundaram G.`;
+        else if (query.includes('how many') || query.includes('count') || query.includes('how much') || query.includes('active project') || query.includes('number of') || query.includes('how many project') || query.includes('stat') || query.includes('metric') || query.includes('sla') || query.includes('deployment')) {
+            response = `We are currently managing **${state.services.length} active services** and **${state.products.length} active products**, representing a total of **${state.services.length + state.products.length} active projects** under the leadership of CEO Raja Meenakshi Sundaram G.\n\nOur current metrics:\n- **Service Delivery SLA**: ${state.stats.delivery}\n- **Active Deployments**: ${state.stats.deployments}\n- **Global Core Support**: ${state.stats.coverage}\n- **Enterprise Products**: ${state.stats.products}`;
         }
         else if (query.includes('hello') || query.includes('hi') || query.includes('hey')) {
             response = `Hello there! I'm here to answer questions about RMS MultiTech's services, products, contact details, or CEO Raja Meenakshi Sundaram G. What would you like to know?`;
