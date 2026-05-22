@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RMS MultiTech - Premium service-based and product-based solutions company founded by Raja Meenakshi Sundaram G. Contact us for next-gen software, AI, and digital solutions.">
+    <title>RMS MultiTech | Enterprise Services & Products</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Ambient Background Elements -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="site-logo">
+                <span class="logo-accent">RMS</span> MultiTech
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#products" class="nav-item">Products</a>
+                <a href="#ceo" class="nav-item">Leadership</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="admin-action-btn" class="btn btn-secondary flex-center">
+                    <i data-lucide="lock" class="btn-icon"></i>
+                    <span id="admin-btn-text">Admin Login</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Menu -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="#home" class="mobile-nav-item">Home</a>
+        <a href="#about" class="mobile-nav-item">About</a>
+        <a href="#services" class="mobile-nav-item">Services</a>
+        <a href="#products" class="mobile-nav-item">Products</a>
+        <a href="#ceo" class="mobile-nav-item">Leadership</a>
+        <a href="#contact" class="mobile-nav-item">Contact</a>
+    </div>
+
+    <!-- Admin Status Banner (Only visible when logged in) -->
+    <div id="admin-status-banner" class="admin-banner hidden">
+        <div class="banner-content">
+            <span class="pulse-indicator"></span>
+            <strong>Admin Edit Mode Active</strong> — Click any highlighted card or text area to edit.
+        </div>
+        <button id="exit-admin-banner-btn" class="btn-close">&times;</button>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <span class="hero-badge">Next-Gen Services & Products</span>
+                <h1 class="hero-title" id="editable-hero-title">
+                    Empowering Businesses with Dual-Engine Innovation
+                </h1>
+                <p class="hero-subtitle" id="editable-hero-subtitle">
+                    We deliver customized high-performance engineering services and state-of-the-art SaaS products under one visionary leadership.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="#products" class="btn btn-outline">Our Products</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Visual Dashboard graphic crafted using CSS/SVG -->
+                <div class="dashboard-preview-card">
+                    <div class="card-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="preview-title">RMS Multi-Task Engine</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="preview-metrics">
+                            <div class="metric">
+                                <div class="metric-val">100%</div>
+                                <div class="metric-lbl">Service Delivery</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-val">5+</div>
+                                <div class="metric-lbl">Active Products</div>
+                            </div>
+                        </div>
+                        <div class="preview-chart">
+                            <div class="chart-bar" style="--height: 40%"></div>
+                            <div class="chart-bar" style="--height: 65%"></div>
+                            <div class="chart-bar" style="--height: 50%"></div>
+                            <div class="chart-bar" style="--height: 85%"></div>
+                            <div class="chart-bar" style="--height: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Model (About Section) -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title" id="editable-about-title">Who We Are</h2>
+                    <p class="section-desc" id="editable-about-desc">A multi-task organization structured to provide high-quality services alongside custom products.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <!-- Services division card -->
+                    <div class="about-card glass-panel hover-grow">
+                        <div class="about-card-icon service-glow">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <h3>Service Division</h3>
+                        <p>We work closely with global enterprises to architect, build, and maintain software platforms, custom integrations, cloud migrations, and artificial intelligence solutions. Our engineers deliver top-tier expertise with high agility.</p>
+                        <ul class="about-list">
+                            <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Dedicated Development Teams</li>
+                            <li><i data-lucide="check-circle-2" class="bullet-icon"></i> End-to-End Project Management</li>
+                            <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Cloud Infrastructure & DevOps</li>
+                        </ul>
+                    </div>
+
+                    <!-- Products division card -->
+                    <div class="about-card glass-panel hover-grow">
+                        <div class="about-card-icon product-glow">
+                            <i data-lucide="package"></i>
+                        </div>
+                        <h3>Product Division</h3>
+                        <p>We research, design, and incubate modern products addressing real-world workflow, analytic, and automation challenges. Our pre-packaged software licenses help businesses implement tools instantly.</p>
+                        <ul class="about-list">
+                            <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Sleek Enterprise SaaS Solutions</li>
+                            <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Plug-and-Play API Systems</li>
+                            <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Data-driven Operations Portals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services-section alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title" id="services-section-title">Our Core Services</h2>
+                        <p class="section-desc" id="services-section-desc">Tailored technical solutions designed to scale your operations and drive digital growth.</p>
+                    </div>
+                    <div class="admin-only hidden">
+                        <button id="add-service-btn" class="btn btn-primary btn-sm flex-center">
+                            <i data-lucide="plus" class="btn-icon"></i> Add Service
+                        </button>
+                    </div>
+                </div>
+
+                <div class="items-grid" id="services-container">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="section products-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title" id="products-section-title">Featured Products</h2>
+                        <p class="section-desc" id="products-section-desc">Innovative digital platforms engineered to streamline business administration and tasks.</p>
+                    </div>
+                    <div class="admin-only hidden">
+                        <button id="add-product-btn" class="btn btn-primary btn-sm flex-center">
+                            <i data-lucide="plus" class="btn-icon"></i> Add Product
+                        </button>
+                    </div>
+                </div>
+
+                <div class="items-grid" id="products-container">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder & CEO Profile Section -->
+        <section id="ceo" class="section ceo-section alt-bg">
+            <div class="container">
+                <div class="ceo-card glass-panel">
+                    <div class="ceo-image-wrapper">
+                        <!-- Profile Card with high visual polish -->
+                        <div class="ceo-placeholder-avatar">
+                            <i data-lucide="user" class="avatar-icon"></i>
+                            <div class="avatar-ring"></div>
+                        </div>
+                    </div>
+                    <div class="ceo-details">
+                        <span class="badge-ceo">FOUNDER & CEO</span>
+                        <h2 class="ceo-name" id="editable-ceo-name">Raja Meenakshi Sundaram G</h2>
+                        <p class="ceo-quote" id="editable-ceo-quote">
+                            "Innovation isn't just about build-quality; it's about solving the right problems with scalable, hybrid solutions. We bridge high-performance consultancy with cutting-edge software development to lead companies into the automation era."
+                        </p>
+                        <div class="ceo-bio" id="editable-ceo-bio">
+                            Raja Meenakshi Sundaram G is a visionary technology entrepreneur with deep experience in orchestrating modern, multi-task systems. By uniting both service-oriented technical workflows and modular products, he leads RMS MultiTech's mission to drive business transformation across global sectors.
+                        </div>
+                        
+                        <div class="ceo-contact-info">
+                            <div class="contact-info-item">
+                                <i data-lucide="phone"></i>
+                                <div>
+                                    <span class="label">Phone</span>
+                                    <a href="tel:9043389303" class="val" id="editable-ceo-phone">9043389303</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i data-lucide="mail"></i>
+                                <div>
+                                    <span class="label">Email</span>
+                                    <a href="mailto:rajalegand1114@gmail.com" class="val" id="editable-ceo-email">rajalegand1114@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-only hidden">
+                            <button id="edit-ceo-btn" class="btn btn-secondary btn-sm flex-center">
+                                <i data-lucide="edit" class="btn-icon"></i> Edit Executive Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-text">
+                        <h2 class="section-title" id="editable-contact-title">Let's Build Together</h2>
+                        <p class="section-desc" id="editable-contact-desc">Whether you have a query about our development services, wish to license one of our enterprise products, or want to discuss direct integration with our founder, our team is ready to assist.</p>
+                        
+                        <div class="company-details-card glass-panel">
+                            <h3>Corporate Directory</h3>
+                            <div class="dir-item">
+                                <i data-lucide="map-pin"></i>
+                                <span id="editable-corp-address">5-24-57/12 Silon Colony North, Virudhunagar, Aruppukottai, Palayampattai</span>
+                            </div>
+                            <div class="dir-item">
+                                <i data-lucide="phone"></i>
+                                <span id="editable-corp-phone">+91 9043389303</span>
+                            </div>
+                            <div class="dir-item">
+                                <i data-lucide="mail"></i>
+                                <span id="editable-corp-email">rajalegand1114@gmail.com</span>
+                            </div>
+                            <div class="dir-item">
+                                <i data-lucide="clock"></i>
+                                <span id="editable-corp-hours">Mon - Fri, 9:00 AM - 6:00 PM IST</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-panel glass-panel">
+                        <h3>Send a Message</h3>
+                        <form id="contact-form" onsubmit="event.preventDefault();">
+                            <div class="form-group">
+                                <label for="form-name">Full Name</label>
+                                <input type="text" id="form-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Email Address</label>
+                                <input type="email" id="form-email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-subject">Subject</label>
+                                <select id="form-subject">
+                                    <option value="Custom Software Service">Custom Software Service</option>
+                                    <option value="Enterprise Product License">Enterprise Product License</option>
+                                    <option value="Executive Consultation">Executive Consultation</option>
+                                    <option value="General Query">General Query</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message">Message</label>
+                                <textarea id="form-message" rows="4" placeholder="Describe your project requirement or question..." required></textarea>
+                            </div>
+                            <div class="form-actions-stack" style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+                                <button type="button" id="submit-whatsapp-btn" class="btn btn-primary btn-block flex-center" style="background: #25d366; border-color: #25d366; color: white; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);">
+                                    <i data-lucide="message-circle" class="btn-icon"></i> Send via WhatsApp Directly
+                                </button>
+                                <button type="button" id="submit-email-btn" class="btn btn-outline btn-block flex-center">
+                                    <i data-lucide="mail" class="btn-icon"></i> Send via Email Address
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo"><span class="logo-accent">RMS</span> MultiTech</a>
+                <p>Innovative digital products and agile software engineering. Redefining enterprise operations under one banner.</p>
+            </div>
+            <div class="footer-links-group">
+                <h4>Navigation</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#products">Products</a>
+            </div>
+            <div class="footer-links-group">
+                <h4>Legal & Support</h4>
+                <a href="#contact">Contact Support</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#" id="footer-admin-login">Admin Console</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RMS MultiTech. All Rights Reserved. Founded by Raja Meenakshi Sundaram G.</p>
+        </div>
+    </footer>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- Admin Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Admin Authentication</h3>
+                <button class="modal-close" id="close-login-btn">&times;</button>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" required autocomplete="username" placeholder="Enter 'admin'">
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" required autocomplete="current-password" placeholder="Enter 'admin123'">
+                </div>
+                <div id="login-error-msg" class="error-text hidden">Invalid credentials. Try admin / admin123</div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancel-login-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Service Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3 id="service-modal-title">Edit Service</h3>
+                <button class="modal-close" id="close-service-modal-btn">&times;</button>
+            </div>
+            <form id="service-form">
+                <input type="hidden" id="service-index">
+                <div class="form-group">
+                    <label for="service-title-input">Service Title</label>
+                    <input type="text" id="service-title-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="service-icon-input">Icon (Lucide name, e.g., 'cpu', 'cloud', 'shield', 'code')</label>
+                    <input type="text" id="service-icon-input" required placeholder="cpu">
+                </div>
+                <div class="form-group">
+                    <label for="service-desc-input">Description</label>
+                    <textarea id="service-desc-input" rows="3" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-danger hidden" id="delete-service-btn">Delete Service</button>
+                    <div class="right-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-service-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="save-service-btn">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3 id="product-modal-title">Edit Product</h3>
+                <button class="modal-close" id="close-product-modal-btn">&times;</button>
+            </div>
+            <form id="product-form">
+                <input type="hidden" id="product-index">
+                <div class="form-group">
+                    <label for="product-title-input">Product Name</label>
+                    <input type="text" id="product-title-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-tag-input">Product Tag (e.g. 'SaaS', 'Mobile', 'Beta')</label>
+                    <input type="text" id="product-tag-input" required placeholder="SaaS">
+                </div>
+                <div class="form-group">
+                    <label for="product-desc-input">Description</label>
+                    <textarea id="product-desc-input" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-link-input">Product Link/URL (Optional)</label>
+                    <input type="text" id="product-link-input" placeholder="#">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-danger hidden" id="delete-product-btn">Delete Product</button>
+                    <div class="right-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-product-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="save-product-btn">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit CEO Modal -->
+    <div id="ceo-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Edit CEO / Founder Information</h3>
+                <button class="modal-close" id="close-ceo-modal-btn">&times;</button>
+            </div>
+            <form id="ceo-form">
+                <div class="form-group">
+                    <label for="ceo-name-input">CEO / Founder Name</label>
+                    <input type="text" id="ceo-name-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="ceo-quote-input">Quote</label>
+                    <textarea id="ceo-quote-input" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ceo-bio-input">Biography</label>
+                    <textarea id="ceo-bio-input" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ceo-phone-input">Contact Phone</label>
+                    <input type="text" id="ceo-phone-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="ceo-email-input">Contact Email</label>
+                    <input type="email" id="ceo-email-input" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancel-ceo-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Editable Text Modal (for inline texts like Hero titles) -->
+    <div id="text-edit-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Edit Site Content</h3>
+                <button class="modal-close" id="close-text-modal-btn">&times;</button>
+            </div>
+            <form id="text-edit-form">
+                <input type="hidden" id="text-element-id">
+                <div class="form-group">
+                    <label for="text-edit-input">Content Text</label>
+                    <textarea id="text-edit-input" rows="4" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancel-text-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= FLOATING CHATBOT ================= -->
+    <div id="chatbot-container" class="chatbot-container">
+        <!-- Floating Chat Icon -->
+        <button id="chatbot-trigger" class="chatbot-trigger" aria-label="Open Chat Help">
+            <i data-lucide="message-square" class="chat-icon-open"></i>
+            <i data-lucide="x" class="chat-icon-close hidden"></i>
+            <span class="chat-pulse"></span>
+        </button>
+
+        <!-- Chat window -->
+        <div id="chatbot-window" class="chatbot-window glass-panel hidden">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">RMS</div>
+                    <div>
+                        <h4>RMS Chatbot</h4>
+                        <span class="chat-status"><span class="status-dot"></span> Online Assistant</span>
+                    </div>
+                </div>
+                <button id="close-chatbot-btn" class="chat-close-btn">&times;</button>
+            </div>
+            
+            <div id="chatbot-messages" class="chat-messages">
+                <!-- Messages will appear here -->
+            </div>
+
+            <!-- Quick Questions Grid -->
+            <div class="chat-quick-actions" id="chat-quick-actions">
+                <button class="quick-action-btn" data-query="Who is the CEO?">CEO Info</button>
+                <button class="quick-action-btn" data-query="What are your services?">Services</button>
+                <button class="quick-action-btn" data-query="What are your products?">Products</button>
+                <button class="quick-action-btn" data-query="How to contact?">Contact Details</button>
+            </div>
+
+            <form id="chatbot-input-form" class="chat-input-form">
+                <input type="text" id="chatbot-input" placeholder="Ask about services, products, contact..." required autocomplete="off">
+                <button type="submit" class="chat-send-btn" aria-label="Send Message">
+                    <i data-lucide="send"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application JS -->
+    <script src="app.js"></script>
+</body>
+</html>
